@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="split-container">
+        <div class="split-panel reliqstudios">
+            <div class="particle-image" id="particle-image" data-params-src="particle-params-reliqstudios.json"></div>
+            <a href="https://reliqstudios.com" class="logo">
+                <img src="logo-studios.svg" alt="ReliqStudios">
+                <span class="logo-tagline">Timeless Web Design & Powerful SEO</span>
+            </a>
+        </div>
+        <div class="split-panel reliqlabs">
+            <div class="particle-image" id="particle-image-2" data-params-src="particle-params-reliqlabs.json"></div>
+            <a href="https://reliqlabs.com" class="logo">
+                <img src="logo-labs.png" alt="Reliqlabs">
+                <span class="logo-tagline">Robust Software & Effective AI</span>
+            </a>
+        </div>
+    </div>
+    
+    <script src="particle-image-responsive.js"></script>
+    <script>
+        // Initialize both particle canvases
+        window.particleImageDisplay("particle-image");
+        
+        // Need to allow multiple instances - remove the global check
+        window.particleImageInitialized = false;
+        window.particleImageDisplay("particle-image-2");
+        
+        // Fade-in animation handler
+        const particleCanvas = document.getElementById('particle-image');
+        if (particleCanvas) {
+            const startParticleFadeIn = () => {
+                particleCanvas.classList.add('fade-in');
+                document.getElementById('particle-image-2').classList.add('fade-in');
+                
+                // Fade in logos
+                document.querySelectorAll('.logo').forEach(logo => {
+                    logo.classList.add('fade-in');
+                });
+            };
+
+            if (window.particleImageDisplayerReady) {
+                startParticleFadeIn();
+            } else {
+                document.addEventListener('particleImageReady', startParticleFadeIn);
+                setTimeout(startParticleFadeIn, 2000);
+            }
+        }
+    </script>
+</body>
+</html>

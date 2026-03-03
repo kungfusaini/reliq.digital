@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.split-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.split-panel {
+  width: 50vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+/* Left side - Reliqlabs (dark) */
+.split-panel.reliqlabs {
+  background-color: #282828;
+}
+
+.split-panel.reliqlabs .particle-image {
+  background-color: #282828;
+}
+
+/* Right side - ReliqStudios (light) */
+.split-panel.reliqstudios {
+  background-color: #fbf1c7;
+}
+
+.split-panel.reliqstudios .particle-image {
+  background-color: #fbf1c7;
+}
+
+/* Particle canvas styling */
+.particle-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+}
+
+.particle-image.fade-in {
+  opacity: 1;
+  visibility: visible;
+}
+
+.particle-image-canvas-el {
+  width: 100% !important;
+  height: 100% !important;
+  touch-action: none;
+}
+
+/* Logo styling */
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo.fade-in {
+  opacity: 1;
+  visibility: visible;
+}
+
+.logo img {
+  width: clamp(120px, 22vw, 350px);
+  height: auto;
+  max-height: none;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+  transform: translateY(-2px);
+}
+
+.logo:hover .logo-tagline {
+  transform: translateY(-2px);
+}
+
+.logo-tagline {
+  font-family: 'Google Sans Code', monospace;
+  font-size: clamp(16px, 2vw, 24px);
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  transition: transform 0.3s ease;
+}
+
+/* Dark side tagline */
+.split-panel.reliqlabs .logo-tagline {
+  color: #ebdbb2;
+}
+
+/* Light side tagline */
+.split-panel.reliqstudios .logo-tagline {
+  color: #3c3836;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 768px) {
+  .split-container {
+    flex-direction: column;
+  }
+  
+  .split-panel {
+    width: 100vw;
+    height: 50vh;
+  }
+  
+  .logo img {
+    width: clamp(180px, 50vw, 300px);
+  }
+  
+  .logo-tagline {
+    font-size: clamp(14px, 4vw, 20px);
+  }
+}
