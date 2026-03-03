@@ -14,11 +14,14 @@ html, body {
   display: flex;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
+  padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom) 0;
 }
 
 .split-panel {
   width: 50vw;
   height: 100vh;
+  height: 100dvh;
   position: relative;
   overflow: hidden;
 }
@@ -130,10 +133,11 @@ html, body {
     flex-direction: column;
   }
   
-  .split-panel {
-    width: 100vw;
-    height: 50vh;
-  }
+   .split-panel {
+     width: 100vw;
+     height: 50vh;
+     height: 50dvh;
+   }
   
   .logo img {
     width: clamp(180px, 50vw, 300px);
