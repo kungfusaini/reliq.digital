@@ -11,6 +11,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- Plausible Analytics -->
+    <script>
+        if (window.location.hostname !== 'localhost') {
+            const script = document.createElement('script');
+            script.defer = true;
+            script.setAttribute('data-domain', 'reliq.digital');
+            script.src = '/stats/js/script.outbound-links.pageview-props.tagged-events.js';
+            document.head.appendChild(script);
+        }
+    </script>
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 </head>
 <body>
     <div class="split-container">
